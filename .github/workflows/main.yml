@@ -27,7 +27,11 @@ jobs:
         run: npm ci
 
       - name: Build 🔧
-        run: npm run build
+        run: |
+          npm run build
+          ls -la out
+          # 如果使用自定义域名，取消下面这行的注释并修改域名
+          # echo "your-domain.com" > out/CNAME
         
       - name: Deploy to GitHub Pages 🚀
         uses: JamesIves/github-pages-deploy-action@v4
