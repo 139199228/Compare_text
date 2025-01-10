@@ -1,8 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: 'export',
-  basePath: process.env.NODE_ENV === 'production' ? '/out' : '',
-  assetPrefix: process.env.NODE_ENV === 'production' ? '/out/' : '',
+  basePath: process.env.NODE_ENV === 'production' ? '/Compare_text/out' : '',
+  assetPrefix: process.env.NODE_ENV === 'production' ? '/Compare_text/out/' : '',
   eslint: {
     ignoreDuringBuilds: true,
   },
