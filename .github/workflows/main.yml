@@ -8,10 +8,14 @@ on:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@v3
+        with:
+          persist-credentials: false
 
       - name: Setup Node.js ⚙️
         uses: actions/setup-node@v3
@@ -28,6 +32,7 @@ jobs:
       - name: Deploy to GitHub Pages 🚀
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: out # 构建输出目录
-          branch: gh-pages # 部署到 gh-pages 分支
-          clean: true # 清理旧文件
+          folder: out
+          branch: gh-pages
+          clean: true
+          token: ${{ secrets.GITHUB_TOKEN }}
