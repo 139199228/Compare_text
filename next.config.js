@@ -1,7 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: 'export',
-  basePath: process.env.NODE_ENV === 'production' ? '/bolt_project' : '',
+  basePath: process.env.NODE_ENV === 'production' ? '/out' : '',
+  assetPrefix: process.env.NODE_ENV === 'production' ? '/out/' : '',
   eslint: {
     ignoreDuringBuilds: true,
   },
