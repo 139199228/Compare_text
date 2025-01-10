@@ -1,8 +1,16 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: 'export',
-  basePath: process.env.NODE_ENV === 'production' ? '/Compare_text/out' : '',
-  assetPrefix: process.env.NODE_ENV === 'production' ? '/Compare_text/out/' : '',
+  basePath: process.env.GITHUB_ACTIONS 
+    ? '/Compare_text'  // 移除 /out
+    : process.env.NODE_ENV === 'production' 
+      ? '/out'
+      : '',
+  assetPrefix: process.env.GITHUB_ACTIONS 
+    ? '/Compare_text/'  // 移除 /out/
+    : process.env.NODE_ENV === 'production' 
+      ? '/out/'
+      : '',
   eslint: {
     ignoreDuringBuilds: true,
   },

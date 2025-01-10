@@ -27,7 +27,11 @@ jobs:
         run: npm ci
 
       - name: Build 🔧
-        run: npm run build
+        run: |
+          npm run build
+          # 验证构建输出
+          ls -la out/_next/static/chunks/
+          ls -la out/_next/static/css/
           
       - name: Deploy to GitHub Pages 🚀
         uses: JamesIves/github-pages-deploy-action@v4
