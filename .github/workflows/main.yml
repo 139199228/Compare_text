@@ -29,9 +29,11 @@ jobs:
       - name: Build 🔧
         run: |
           npm run build
-          # 验证构建输出
+          # 验证构建输出和文件内容
           ls -la out/_next/static/chunks/
           ls -la out/_next/static/css/
+          # 检查 index.html 中的资源路径
+          cat out/index.html | grep "_next/static"
           
       - name: Deploy to GitHub Pages 🚀
         uses: JamesIves/github-pages-deploy-action@v4
